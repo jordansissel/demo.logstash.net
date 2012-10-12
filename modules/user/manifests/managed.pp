@@ -1,5 +1,6 @@
 define user::managed($ensure="present", $home="present", $root=false, $groups=["human"], $shell="/bin/bash") {
   include ::user::groups
+  include ::sudo
 
   user {
     "$name":
