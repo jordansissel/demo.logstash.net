@@ -5,7 +5,7 @@ class user::tools {
     "cscope": ensure => latest;
     "ctags": ensure => latest;
     "gcc": ensure => latest;
-    "gcc-c++": ensure => latest;
+    "g++": ensure => latest;
     "gdb": ensure => latest;
     "git": ensure => latest;
     "libtool": ensure => latest;
