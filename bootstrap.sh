@@ -8,6 +8,9 @@ echo "deb http://apt.opscode.com/ `lsb_release -cs`-0.10 main" | tee /etc/apt/so
 mkdir -p /etc/apt/trusted.gpg.d
 gpg --keyserver keys.gnupg.net --recv-keys 83EF826A
 gpg --export packages@opscode.com | tee /etc/apt/trusted.gpg.d/opscode-keyring.gpg > /dev/null
-apt-get update
+apt-get update 
 
-apt-get install chef
+apt-get install -y chef
+
+/etc/init.d/chef-client stop # I use chef-solo.
+chmod 644 /etc/init.d/chef-client # Disable it
