@@ -10,7 +10,6 @@
     }
   ],
   "run_list": [ 
-    "recipe[humans]",
     "recipe[java]"
   ]
 }
