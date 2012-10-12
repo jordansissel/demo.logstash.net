@@ -1,5 +1,4 @@
 define user::managed($ensure="present", $home="present", $root=false, $groups=["human"], $shell="/bin/bash") {
-  include ::ssh::server
   include ::user::groups
 
   user {
@@ -33,9 +32,14 @@ define user::managed($ensure="present", $home="present", $root=false, $groups=["
   }
 
   file {
-    "/etc/ssh/authorized-keys/$name.pub":
+    "/home/$name/.ssh":
+      ensure => directory,
+      owner => $name,
+      mode => 711;
+    "/home/$name/.ssh/authorized_keys":
       ensure => $ensure,
-      source => "puppet:///modules/user/publickeys/$name.pub",
-      require => Class["ssh::server"];
+      owner => $name,
+      mode => 0400,
+      source => "puppet:///modules/user/publickeys/$name.pub";
   }
 }
