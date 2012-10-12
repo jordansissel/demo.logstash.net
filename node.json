@@ -1,0 +1,11 @@
+{
+  "java": {
+    "jdk_version": "7"
+  },
+  "run_list": [ 
+    "recipe[java]",
+    "recipe[elasticsearch]",
+    "recipe[logstash]"
+  ]
+}
+
