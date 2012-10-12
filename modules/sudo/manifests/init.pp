@@ -8,6 +8,6 @@ class sudo {
       owner => root,
       mode => 440,
       require => Package["sudo"],
-      source => "puppet:///sudoers";
+      source => "puppet:///modules/sudo/sudoers";
   }
 }
