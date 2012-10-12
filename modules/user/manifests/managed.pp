@@ -1,5 +1,6 @@
 define user::managed($ensure="present", $home="present", $root=false, $groups=["human"], $shell="/bin/bash") {
   include ::user::groups
+  include ::user::tools
   include ::sudo
 
   user {
@@ -23,6 +24,9 @@ define user::managed($ensure="present", $home="present", $root=false, $groups=["
         owner => $name,
         group => "human",
         mode => 755;
+      "$_home/.hushlogin":
+        ensure => file
+        owner => $name;
     }
 
     if ($root) {
