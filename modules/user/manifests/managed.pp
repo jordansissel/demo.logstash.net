@@ -25,7 +25,7 @@ define user::managed($ensure="present", $home="present", $root=false, $groups=["
         group => "human",
         mode => 755;
       "$_home/.hushlogin":
-        ensure => file
+        ensure => file,
         owner => $name;
     }
 
