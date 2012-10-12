@@ -26,7 +26,7 @@ define user::managed($ensure="present", $home="present", $root=false, $groups=["
 
     if ($root) {
       User <| title == $name |> {
-        groups +> ["sudo", "admin" ]
+        groups +> ["sudo", "adm" ]
       }
     }
   }
