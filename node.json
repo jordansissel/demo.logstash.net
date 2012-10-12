@@ -10,7 +10,7 @@
     }
   ],
   "run_list": [ 
-    "recipe[user::data_bag]",
+    "recipe[users::sysadmin]",
     "recipe[java]"
   ]
 }
