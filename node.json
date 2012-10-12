@@ -10,7 +10,7 @@
     }
   ],
   "run_list": [ 
-    "recipe[users::sysadmin]",
+    "recipe[users::sysadmins]",
     "recipe[java]"
   ]
 }
