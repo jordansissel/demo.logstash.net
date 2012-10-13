@@ -35,6 +35,7 @@ define runit::process(
       ensure => $ensure_directory;
     "$servicedir/log/run":
       ensure => file,
+      notify => Exec["restart $servicedir/log"],
       require => File["$logdir"],
       mode => 0755,
       content => template("runit/log.sh.erb");
@@ -42,5 +43,11 @@ define runit::process(
       ensure => $ensure_directory,
       require => User["runitlog"],
       owner => "runitlog";
+  }
+
+  exec {
+    "restart $servicedir/log":
+      command => "/usr/bin/sv restart $servicedir/log",
+      refreshonly => true;
   }
 }
