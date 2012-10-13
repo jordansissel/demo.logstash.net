@@ -3,7 +3,8 @@ class user::tools {
     "build-essential": ensure => latest;
     "clang": ensure => latest;
     "cscope": ensure => latest;
-    "ctags": ensure => latest;
+    "exuberant-ctags": ensure => latest;
+    "vim": ensure => latest;
     "gcc": ensure => latest;
     "g++": ensure => latest;
     "gdb": ensure => latest;
