@@ -1,6 +1,10 @@
 class statsd::package {
   user::app { "statsd": ; }
 
+  package {
+    "nodejs": ensure => latest;
+  }
+
   vcsrepo {
     "/app/statsd/statsd":
       ensure => latest,
