@@ -13,12 +13,4 @@ class statsd::package {
       provider => "git",
       source => "https://github.com/etsy/statsd.git"
   }
-
-  file {
-    "/app/statsd/statsd/config.js":
-      ensure => file,
-      owner => "statsd",
-      group => "statsd",
-      source => "puppet:///modules/statsd/config.js";
-  }
 }

@@ -6,7 +6,16 @@ class statsd::service {
       ensure => present,
       user => "statsd",
       require => Class["statsd::package"],
-      command => "node stats.js config.js",
+      command => "node stats.js statsd.conf",
       directory => "/app/statsd/statsd";
+  }
+
+  file {
+    "/app/statsd/statsd/config.js":
+      ensure => file,
+      notify => Runit::Process["statsd"],
+      owner => "statsd",
+      group => "statsd",
+      source => "puppet:///modules/statsd/statsd.conf";
   }
 }
