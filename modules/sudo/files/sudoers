@@ -2,4 +2,5 @@ Defaults        env_reset
 Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 root    ALL=(ALL:ALL) ALL
 %admin ALL=(ALL) ALL
-%sudo   ALL=NOPASSWD: ALL
+%sudo   ALL=(ALL) NOPASSWD: ALL
+
