@@ -9,22 +9,24 @@ define runit::process(
   include ::runit::service
 
   $servicedir = "$serviceroot/$name"
+  $logdir = "$logroot/$name"
 
   file {
     "$servicedir": 
       ensure => directory;
     "$servicedir/run":
       ensure => file,
-      require => [ File["$servicedir/log/run"], File["$logroot/$name"] ],
+      require => [ File["$servicedir/log/run"], File["$logdir"] ],
       mode => 0755,
       content => template("runit/run.sh.erb");
     "$servicedir/log":
       ensure => directory;
     "$servicedir/log/run":
       ensure => file,
+      require => File["$logdir"],
       mode => 0755,
       content => template("runit/log.sh.erb");
-    "$logroot/$name":
+    "$logdir":
       ensure => directory;
   }
 }
