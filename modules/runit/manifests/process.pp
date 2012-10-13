@@ -17,7 +17,7 @@ define runit::process(
 
   if $ensure == "absent" {
     exec {
-      "stop runit::process[$name]":
+      "stop runit::process $name":
         command => "/usr/bin/sv force-stop $servicedir",
         before => File["$servicedir"];
     }
