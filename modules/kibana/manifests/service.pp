@@ -1,21 +1,21 @@
-class statsd::service {
-  include ::statsd::package
+class kibana::service {
+  include ::kibana::package
 
   runit::process {
-    "statsd":
+    "kibana":
       ensure => present,
-      user => "statsd",
-      require => Class["statsd::package"],
-      command => "node stats.js statsd.conf",
-      directory => "/app/statsd/statsd";
+      user => "kibana",
+      require => Class["kibana::package"],
+      command => "ruby kibana.rb",
+      directory => "/app/kibana/kibana";
   }
 
   file {
-    "/app/statsd/statsd/statsd.conf":
+    "/app/kibana/kibana/KibanaConfig.rb":
       ensure => file,
-      notify => Runit::Process["statsd"],
-      owner => "statsd",
-      group => "statsd",
-      source => "puppet:///modules/statsd/statsd.conf";
+      notify => Runit::Process["kibana"],
+      owner => "kibana",
+      group => "kibana",
+      source => "puppet:///modules/kibana/KibanaConfig.rb";
   }
 }
