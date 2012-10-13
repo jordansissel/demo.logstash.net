@@ -20,6 +20,9 @@ class user::tools {
     "zsh": ensure => latest;
     "libyaml-dev": ensure => latest;
 
+    "libxml2": ensure => latest;
+    "libxml2-dev": ensure => latest;
+
     "libreadline6": ensure => latest;
     "readline-common": ensure => latest;
     "libreadline-dev": ensure => latest;
