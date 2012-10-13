@@ -15,10 +15,13 @@ class user::tools {
     "lsof": ensure => latest;
     "nmap": ensure => latest;
     "libssl-dev": ensure => latest;
-    "libreadline6": ensure => latest;
-    "readline-common": ensure => latest;
     "strace": ensure => latest;
     "valgrind": ensure => latest;
     "zsh": ensure => latest;
+    "libyaml-dev": ensure => latest;
+
+    "libreadline6": ensure => latest;
+    "readline-common": ensure => latest;
+    "libreadline-dev": ensure => latest;
   }
 }
