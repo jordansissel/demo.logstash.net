@@ -5,6 +5,8 @@ define runit::process(
   $serviceroot="/etc/service"
   $logroot="/var/log/service"
 ) {
+  include ::runit::package
+  include ::runit::service
 
   $servicedir = "$serviceroot/$name";
 
@@ -13,6 +15,7 @@ define runit::process(
       ensure => directory;
     "$servicedir/run":
       ensure => file,
+      require => [ File["$servicedir/log/run"], File["$logroot/$name"] ],
       mode => 0755,
       content => template("runit/run.sh.erb");
     "$servicedir/log":
