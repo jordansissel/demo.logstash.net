@@ -11,7 +11,7 @@ class statsd::service {
   }
 
   file {
-    "/app/statsd/statsd/config.js":
+    "/app/statsd/statsd/statsd.conf":
       ensure => file,
       notify => Runit::Process["statsd"],
       owner => "statsd",
