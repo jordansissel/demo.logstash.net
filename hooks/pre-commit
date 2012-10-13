@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "OK"
 git diff-index --cached HEAD \
 | grep '\.pp$' \
-| xargs puppet parser validate
+| xargs -r puppet parser validate
