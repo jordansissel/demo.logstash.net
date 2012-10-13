@@ -29,5 +29,7 @@ class user::tools {
     "libreadline6": ensure => latest;
     "readline-common": ensure => latest;
     "libreadline-dev": ensure => latest;
+
+    "ant1.7": ensure => latest;
   }
 }
