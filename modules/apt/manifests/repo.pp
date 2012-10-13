@@ -11,13 +11,13 @@ define apt::repo(
     file {
       "/etc/apt/$name.key":
         ensure => file,
-        notify => Exec["add $name apt key"]:
+        notify => Exec["add $name apt key"],
         source => $key;
     }
 
     exec {
       "add $name apt key":
-        command => "apt-key add /etc/apt/virtualbox.key",
+        command => "apt-key add /etc/apt/$name.key",
         refreshonly => true;
     }
   }
