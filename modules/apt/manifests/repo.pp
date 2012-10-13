@@ -23,7 +23,7 @@ define apt::repo(
   }
 
   file {
-    "/etc/apt/source.list.d/$name.list":
+    "/etc/apt/sources.list.d/$name.list":
       ensure => file,
       notify => Class["apt::update"],
       content => "deb $url $distribution $component\n";
