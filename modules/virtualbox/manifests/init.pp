@@ -4,7 +4,7 @@ class virtualbox {
     "virtualbox":
       url => "http://download.virtualbox.org/virtualbox/debian",
       distribution => "precise",
-      components => "contrib",
+      component => "contrib",
       key => "puppet:///modules/virtualbox/virtualbox.apt.key";
   }
 }
