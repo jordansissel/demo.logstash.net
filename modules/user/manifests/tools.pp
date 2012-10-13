@@ -22,6 +22,9 @@ class user::tools {
 
     "libxml2": ensure => latest;
     "libxml2-dev": ensure => latest;
+    "libxslt1.1": ensure => latest;
+    "libxslt1-dev": ensure => latest;
+
 
     "libreadline6": ensure => latest;
     "readline-common": ensure => latest;
