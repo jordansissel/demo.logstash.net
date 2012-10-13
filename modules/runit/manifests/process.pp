@@ -13,7 +13,7 @@ define runit::process(
   $logdir = "$logroot/$name"
 
   $ensure_file = $ensure
-  $ensure_directory = $ensure ? { "absent" => "absent", default => "present" }
+  $ensure_directory = $ensure ? { "absent" => "absent", default => "directory" }
 
   if $ensure == "absent" {
     exec {
