@@ -1,14 +1,14 @@
 define runit::process(
   $command, # the command to run
   $user, # the user to run as
-  $directory="/"
-  $serviceroot="/etc/service"
+  $directory="/",
+  $serviceroot="/etc/service",
   $logroot="/var/log/service"
 ) {
   include ::runit::package
   include ::runit::service
 
-  $servicedir = "$serviceroot/$name";
+  $servicedir = "$serviceroot/$name"
 
   file {
     "$servicedir": 
