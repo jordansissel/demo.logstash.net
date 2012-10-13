@@ -27,7 +27,8 @@ define runit::process(
       mode => 0755,
       content => template("runit/log.sh.erb");
     "$logdir":
+      ensure => directory,
+      require => User["runitlog"],
       owner => "runitlog";
-      ensure => directory;
   }
 }
