@@ -32,7 +32,7 @@ define runit::process(
       mode => 0755,
       content => template("runit/run.sh.erb");
     "$servicedir/log":
-      ensure => $ensure_file;
+      ensure => $ensure_directory;
     "$servicedir/log/run":
       ensure => file,
       require => File["$logdir"],
