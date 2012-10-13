@@ -3,6 +3,10 @@ class runit::package {
     "runit": ensure => latest;
   }
 
+  user {
+    "runitlog": ensure => present;
+  }
+
   file {
     "/service":
       ensure => link,
