@@ -29,14 +29,20 @@ class apache::mod::default {
   apache::mod { 'include': }
   apache::mod { 'info': }
   apache::mod { 'ldap': }
-  apache::mod { 'log_config': }
-  apache::mod { 'logio': }
+
+  # These are compiled into apache by default on ubuntu 12.04
+  if !($operatingsystem == "Ubuntu" and $lsbdistrelease == "12.04") {
+    apache::mod { 'log_config': }
+    apache::mod { 'logio': }
+  }
+
   apache::mod { 'mime': }
   apache::mod { 'mime_magic': }
   apache::mod { 'negotiation': }
   include apache::mod::proxy
   apache::mod { 'proxy_balancer': }
   apache::mod { 'proxy_connect': }
+  apache::mod { 'proxy_http': }
   apache::mod { 'proxy_ftp': }
   apache::mod { 'rewrite': }
   apache::mod { 'setenvif': }
