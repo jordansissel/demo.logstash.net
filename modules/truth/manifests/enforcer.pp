@@ -12,5 +12,6 @@ class truth::enforcer {
   jenkins::plugin {
     "git": ;
     "github": ;
+    "rvm": ;
   }
 }
