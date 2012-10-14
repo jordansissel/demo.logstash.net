@@ -1,9 +1,8 @@
 class apt::update {
-  exec {
-    "apt-get update": ;
-  }
+  include apt::params
 
-  Package <| |> {
-    require => Exec["apt-get update"]
+  exec { 'apt_update':
+    command     => "${apt::params::provider} update",
+    refreshonly => true,
   }
 }
