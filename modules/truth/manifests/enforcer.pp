@@ -6,6 +6,11 @@ class truth::enforcer {
   include user::humans
   include virtualbox
   include statsd
-
   include demosite
+
+  include jenkins
+  jenkins::plugin {
+    "git": ;
+    "github": ;
+  }
 }

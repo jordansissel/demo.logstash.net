@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="1" name="Support adding Jenkins via Puppet on Debian machines" skipped="0" tests="2" time="325.890648">
+<testcase classname="Support adding Jenkins via Puppet on Debian machines.Install Jenkins via Puppet" name="Install Jenkins via Puppet" time="293.631803">
+</testcase>
+<testcase classname="Support adding Jenkins via Puppet on Debian machines.Install the git plugin" name="Install the git plugin" time="32.258845">
+  <failure message="failed Install the git plugin" type="failed">
+    <![CDATA[Scenario: Install the git plugin
+
+Given I have a running Ubuntu VM
+And I have Puppet installed
+And the Jenkins module is on the machine
+Given the manifest:
+When I provision the machine
+Then I should have Jenkins installed
+And I should have the "git" plugin installed
+
+Message:
+]]>
+    <![CDATA[The following SSH command responded with a non-zero exit status.
+Vagrant assumes that this means the command failed!
+
+puppet apply --modulepath=/home/vagrant /vagrant/cucumber.pp (Vagrant::Errors::VagrantError)
+./features/support/vagrant.rb:24:in `run_vagrant_command'
+./features/support/vagrant.rb:14:in `run_sudo_command'
+./features/step_definitions/deb_support_steps.rb:56:in `/^I provision the machine$/'
+features/deb_support.feature:30:in `When I provision the machine']]>
+  </failure>
+</testcase>
+</testsuite>

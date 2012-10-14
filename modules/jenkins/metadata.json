@@ -1,0 +1,61 @@
+{
+  "name": "rtyler-jenkins",
+  "version": "0.2.3",
+  "source": "git://github.com/rtyler/puppet-jenkins.git",
+  "author": "R. Tyler Croy <tyler@monkeypox.org>",
+  "license": "Apache 2.0",
+  "summary": "Manage the Jenkins continuous integration service with Puppet",
+  "description": "Manage the Jenkins continuous integration service with Puppet",
+  "project_page": "https://github.com/rtyler/puppet-jenkins",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 2.0.0"
+    },
+    {
+      "name": "puppetlabs/apt",
+      "version_requirement": ">= 0.0.1"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Blimpfile": "dd79ec73aa96693c38fb0c9bcc42f87d",
+    "Gemfile": "7e8b829ff7fde7d43a28d701fe8620b5",
+    "Gemfile.lock": "579878fa1e89c5d2775ef0b2d64a38cd",
+    "LICENSE": "2aa9df9c14a3b8b647fab290a493f150",
+    "Modulefile": "832c169ed36a11ee4d6df1e68f6cdb71",
+    "README.markdown": "1b7346dd6a625e07754f57dfc337797b",
+    "Rakefile": "aaa0fe1993278f346063b22c15385b3b",
+    "bootstrap.sh": "3e2d3f4ba676be148cb04b997842930c",
+    "features/deb_support.feature": "14789ecdb4e8ffd58195972969a652ce",
+    "features/step_definitions/deb_support_steps.rb": "fac9e21625d1b47338a289b7e77a170e",
+    "features/support/boxes/deb/Vagrantfile": "3b6fe4e29d850d148d0f4029e69d123c",
+    "features/support/boxes/deb/cucumber.pp": "a658fc753c310c42161bf49f1e5338dd",
+    "features/support/boxes/deb/init.pp": "3af64df0ee120dfd1a40219c4ce846ae",
+    "features/support/boxes/deb/install-puppet-module.sh": "79dda31c04877e19075829f3540d1e31",
+    "features/support/boxes/deb/rtyler-jenkins-0.0.2.tar.gz": "bc6a5627f9bec375f7cc3b709df48dfa",
+    "features/support/boxes/deb/verify-jenkins-install": "7ac9d96ae93d0fa83b3343f17a0015bc",
+    "features/support/boxes/deb/verify-plugin-install": "2ed9c76590c4d98cc59f99609751255f",
+    "features/support/env.rb": "dcc615ffa3d9a0fba494231d87d33115",
+    "features/support/vagrant.rb": "230b2a693899f0d00ba25c3c499527d5",
+    "manifests/firewall.pp": "ec222bbef221982c7d7fd0b90d265842",
+    "manifests/init.pp": "596d9ae1fb5a76347880900cbbbbe39c",
+    "manifests/package.pp": "72abcdeca729e988377ef28a4b506a7d",
+    "manifests/plugin/install.pp": "51d882f994503789a7418038c5f6edb9",
+    "manifests/plugin.pp": "08d1b01f16c35e7a12060d62d3b3e90c",
+    "manifests/repo/debian.pp": "558ab1755a3adb8326fe1f4a3e2e82f1",
+    "manifests/repo/el.pp": "04fd6b9a03f5f96980ce8ad57c2ecd62",
+    "manifests/repo.pp": "53bdb36e403a08e29cce27d330edcb75",
+    "manifests/service.pp": "2bf1985cf9445315a7bcf6735584c3e7",
+    "spec/classes/jenkins_spec.rb": "ee5732082e6d65fe9e48006206ff3d62",
+    "spec/defines/jenkins_plugin_install_spec.rb": "dd7f9ed8e06ab5fe3849e120e3068f7a",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "spec/spec_helper.rb": "fe4539ed543e9a300effcf46fe8a478f",
+    "templates/jenkins-ci.org.key": "9fa06089848262c5a6383ec27fdd2575",
+    "templates/jenkins.repo": "0a907e1f316e481ab145edaa6ba66d39",
+    "test_reports/TEST-features-deb_support.xml": "f0f97bf91e6221c095f0eba185f0fb4b",
+    "tests/site.pp": "c094d16be278f045311fafb85d1806e3"
+  }
+}
