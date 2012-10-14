@@ -1,10 +1,10 @@
 class virtualbox {
-
   apt::source {
     "virtualbox":
       require => Apt::Key["oracle-virtualbox"],
       location => "http://download.virtualbox.org/virtualbox/debian",
       release => "precise",
+      include_src  => false,
       repos => "contrib";
   }
 
