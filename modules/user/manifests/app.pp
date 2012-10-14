@@ -6,6 +6,7 @@ define user::app($ensure="present", $groups=["apps"], $shell="/bin/false") {
     "$name":
       ensure => $ensure,
       shell => $shell,
+      home => "/app/$name",
       groups => $groups;
   }
 
