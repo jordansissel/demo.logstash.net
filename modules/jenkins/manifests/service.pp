@@ -1,9 +1,12 @@
 class jenkins::service {
-  service { 'jenkins':
-    ensure     => running,
-    enable     => true,
-    hasstatus  => true,
-    hasrestart => true,
+  include ::jenkins::package
+
+  runit::process {
+    "jenkins":
+      ensure => present,
+      user => "jenkins",
+      require => Class["jenkins::package"],
+      command => "sh run.sh",
+      directory => "/app/jenkins";
   }
 }
-
