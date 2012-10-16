@@ -3,5 +3,8 @@
 exec 2>&1
 set -e
 
+export HOME=`getent passwd <%= user %> | awk -F: '{print $6}'`
+export USER=<%= user %>
+
 cd <%= directory %>
 exec chpst -u<%= user %> <%= command %>
