@@ -25,6 +25,7 @@ class user::tools {
     "libxslt1.1": ensure => latest;
     "libxslt1-dev": ensure => latest;
 
+    "ragel": ensure => latest;
 
     "libreadline6": ensure => latest;
     "readline-common": ensure => latest;
