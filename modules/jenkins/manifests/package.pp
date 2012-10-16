@@ -12,6 +12,6 @@ class jenkins::package {
       ensure => file,
       owner => jenkins,
       group => jenkins,
-      content => "[user]\n  name = logstash jenkins\n  email = jls+r.logstash.net@semicomplete.com";
+      content => "[user]\n  name = logstash jenkins\n  email = jls+r.logstash.net@semicomplete.com\n";
   }
 }
