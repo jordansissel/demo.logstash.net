@@ -12,7 +12,7 @@ class kibana::package {
       require => User::App["statsd"],
       owner => "kibana",
       provider => "git",
-      revision => "master",
-      source => "https://github.com/rashidkpc/Kibana"
+      revision => "kibana-ruby",
+      source => "https://github.com/jordansissel/Kibana"
   }
 }

@@ -6,12 +6,12 @@ class kibana::service {
       ensure => present,
       user => "kibana",
       require => Class["kibana::package"],
-      command => "ruby kibana.rb",
+      command => "env KIBANA_CONFIG=/app/kibana/kibana.conf ruby kibana.rb",
       directory => "/app/kibana/kibana";
   }
 
   file {
-    "/app/kibana/kibana/KibanaConfig.rb":
+    "/app/kibana/kibana.conf":
       ensure => file,
       require => Class["kibana::package"],
       notify => Runit::Process["kibana"],
