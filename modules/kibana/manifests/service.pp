@@ -6,7 +6,8 @@ class kibana::service {
       ensure => present,
       user => "kibana",
       require => Class["kibana::package"],
-      command => "env KIBANA_CONFIG=/app/kibana/kibana.conf ruby kibana.rb",
+      #command => "env KIBANA_CONFIG=/app/kibana/kibana.conf ruby kibana.rb",
+      command => "ruby kibana.rb",
       directory => "/app/kibana/kibana";
   }
 
