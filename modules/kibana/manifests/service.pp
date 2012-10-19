@@ -11,7 +11,7 @@ class kibana::service {
   }
 
   file {
-    "/app/kibana/kibana.conf":
+    "/app/kibana/kibana/KibanaConfig.rb":
       ensure => file,
       require => Class["kibana::package"],
       notify => Runit::Process["kibana"],
