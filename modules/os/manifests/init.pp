@@ -4,6 +4,6 @@ class os {
       ensure => file,
       owner => root,
       group => root,
-      content => "puppet:///modules/os/limits.conf";
+      source => "puppet:///modules/os/limits.conf";
   }
 }

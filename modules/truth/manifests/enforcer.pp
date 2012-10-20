@@ -9,4 +9,5 @@ class truth::enforcer {
   include demosite
   include jenkins
   include os
+  include redis
 }
