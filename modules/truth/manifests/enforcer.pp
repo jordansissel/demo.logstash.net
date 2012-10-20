@@ -8,4 +8,5 @@ class truth::enforcer {
   include statsd
   include demosite
   include jenkins
+  include os
 }
