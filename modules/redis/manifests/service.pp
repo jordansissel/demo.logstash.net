@@ -1,5 +1,5 @@
 class redis::service {
-  include ::kibana::package
+  include ::redis::package
 
   runit::process {
     "redis":
@@ -7,16 +7,24 @@ class redis::service {
       user => "redis",
       require => Class["redis::package"],
       command => "/app/redis/run.sh",
-      directory => "/app/redis/redis";
+      directory => "/app/redis";
   }
 
   file {
     "/app/redis/redis.conf":
       ensure => file,
-      require => Class["kibana::package"],
+      require => Class["redis::package"],
       notify => Runit::Process["redis"],
       owner => "redis",
       group => "redis",
       source => "puppet:///modules/redis/redis.conf";
+    "/app/redis/run.sh":
+      ensure => file,
+      require => Class["redis::package"],
+      notify => Runit::Process["redis"],
+      mode => 755,
+      owner => "redis",
+      group => "redis",
+      source => "puppet:///modules/redis/run.sh";
   }
 }
