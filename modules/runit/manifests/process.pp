@@ -43,6 +43,9 @@ define runit::process(
       ensure => $ensure_directory,
       require => User["runitlog"],
       owner => "runitlog";
+    "/var/log/${name}":
+      ensure => link,
+      target => "$logdir/current";
   }
 
   exec {
