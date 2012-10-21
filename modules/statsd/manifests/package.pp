@@ -8,6 +8,7 @@ class statsd::package {
   vcsrepo {
     "/app/statsd/statsd":
       ensure => latest,
+      revision => "master",
       require => User::App["statsd"],
       owner => "statsd",
       provider => "git",
