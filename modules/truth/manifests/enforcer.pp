@@ -4,7 +4,7 @@ class truth::enforcer {
   }
 
   include user::humans
-  include virtualbox
+  #include virtualbox
   include statsd
   include demosite
   include jenkins
