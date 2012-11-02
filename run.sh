@@ -5,4 +5,6 @@ if ! which puppet > /dev/null 2>&1 ; then
 fi
 
 puppet apply --modulepath modules site.pp \
-  | /opt/lumberjack/bin/lumberjack.sh --ssl-ca-path ./lumberjack.crt --host localhost --port 5005 --field type=puppet -
+  | /opt/lumberjack/bin/lumberjack.sh --ssl-ca-path ./lumberjack.crt \
+       --host localhost --port 5005 --field type=puppet \
+       --field run=`date +%s` -
