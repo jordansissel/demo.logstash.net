@@ -5,16 +5,16 @@ class logstashnet {
 
   user::app { "logstash.net": ; }
 
-  #vcsrepo {
-    #"/app/logstash.net/logstash.net":
-      #ensure => latest,
-      #require => User::App["logstash.net"],
-      #owner => "logstash.net",
-      #provider => "git",
-      #revision => "master",
+  vcsrepo {
+    "/app/logstash.net/logstash.net":
+      ensure => latest,
+      require => User::App["logstash.net"],
+      owner => "logstash.net",
+      provider => "git",
+      revision => "master",
       #notify => Exec["regen logstash.net"],
-      #source => "https://github.com/logstash/logstash.github.com"
-  #}
+      source => "https://github.com/logstash/logstash.github.com";
+  }
 
   file {
     "$apache::params::vdir/logstash.net.conf":
