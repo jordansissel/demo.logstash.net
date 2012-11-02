@@ -7,6 +7,7 @@ class truth::enforcer {
   include virtualbox
   include statsd
   include demosite
+  include logstashnet
   include jenkins
   include os
   include redis
