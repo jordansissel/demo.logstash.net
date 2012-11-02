@@ -1,4 +1,4 @@
-class demosite {
+class logstashnet {
   include apache
   include apache::params
   include apache::mod::default
@@ -16,14 +16,14 @@ class demosite {
       #source => "https://github.com/logstash/logstash.github.com"
   #}
 
-  #file {
-    #"$apache::params::vdir/logstash.net.conf":
-      #ensure => file,
-      #source => "puppet:///modules/demosite/logstash.net.conf",
-      ## I don't like notifying an external service (defined by the 'apache' class)
-      ## but the puppetlabs/apache module defines it there and until I patch it
-      ## this is what is required. After fixing the apache module, I'll be
-      ## able to do: notify => Class["apache::service"]
-      #notify => Service["httpd"];
-  #}
+  file {
+    "$apache::params::vdir/logstash.net.conf":
+      ensure => file,
+      source => "puppet:///modules/logstashnet/logstash.net.conf",
+      # I don't like notifying an external service (defined by the 'apache' class)
+      # but the puppetlabs/apache module defines it there and until I patch it
+      # this is what is required. After fixing the apache module, I'll be
+      # able to do: notify => Class["apache::service"]
+      notify => Service["httpd"];
+  }
 }
