@@ -8,7 +8,10 @@ branch=$1
 [ -z "$branch" ] && branch=stable
 
 USER="$(whoami)"
-HOME="$(getent passwd "$user" | awk -F: '{print $(NF-1)')"
+HOME="$(getent passwd "$USER" | awk -F: '{print $(NF-1)}')"
+
+cd $HOME
+export HOME
 
 rvm="${HOME}/.rvm/scripts/rvm"
 if [ ! -f "$rvm" ] ; then
@@ -16,4 +19,4 @@ if [ ! -f "$rvm" ] ; then
 else
   . "$rvm"
   rvm get $branch
-end
+fi

@@ -12,8 +12,23 @@ class logstashnet {
       owner => "logstash.net",
       provider => "git",
       revision => "master",
-      #notify => Exec["regen logstash.net"],
+      notify => Rvm::Bundle_Exec["regen logstash.net"],
       source => "https://github.com/logstash/logstash.github.com";
+  }
+
+  rvm::install {
+    "for logstash.net":
+      user => "logstash.net",
+      require => User::App["logstash.net"];
+  }
+
+  rvm::bundle_exec {
+    "regen logstash.net":
+      require => Rvm::Install["for logstash.net"],
+      command => "sh regen.sh",
+      user => "logstash.net",
+      #refreshonly => true,
+      directory => "/app/logstash.net/logstash.net";
   }
 
   file {
