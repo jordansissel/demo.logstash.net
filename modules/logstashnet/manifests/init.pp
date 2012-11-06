@@ -2,6 +2,7 @@ class logstashnet {
   include apache
   include apache::params
   include apache::mod::default
+  include logstashnet::cookbook
 
   user::app { "logstash.net": ; }
 
