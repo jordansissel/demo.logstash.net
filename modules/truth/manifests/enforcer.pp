@@ -11,4 +11,5 @@ class truth::enforcer {
   include jenkins
   include os
   include redis
+  include shatty
 }

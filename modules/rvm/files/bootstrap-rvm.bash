@@ -10,6 +10,7 @@ branch=$1
 USER="$(whoami)"
 HOME="$(getent passwd "$USER" | awk -F: '{print $(NF-1)}')"
 
+echo "HOME: $HOME"
 cd $HOME
 export HOME
 
