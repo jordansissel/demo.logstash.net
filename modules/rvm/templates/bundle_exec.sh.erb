@@ -1,8 +1,11 @@
 #!/bin/sh
 
+exec > /tmp/bundle_exec.out
+exec 2> /tmp/bundle_exec.err
 # This is a dumb hack to get the puppet exec 'shell' provider to use bash instead.
 # Only necessary because debian's /bin/sh is horribly under-featured.
 exec bash - <<ENDOFSCRIPT
+set -x
 
 USER="\$(whoami)"
 HOME="\$(getent passwd "\$USER" | awk -F: '{print \$(NF-1)}')"
