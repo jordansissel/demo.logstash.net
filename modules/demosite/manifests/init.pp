@@ -6,7 +6,7 @@ class demosite {
 
   file {
     "$apache::params::vdir/graphite.conf":
-      ensure => file,
+      ensure => absent, # TODO(sissel): re-enable this
       source => "puppet:///modules/demosite/graphite.conf",
       # I don't like notifying an external service (defined by the 'apache' class)
       # but the puppetlabs/apache module defines it there and until I patch it
