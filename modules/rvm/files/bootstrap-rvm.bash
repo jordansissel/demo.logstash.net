@@ -3,6 +3,9 @@
 # Usage: bootstrap-rvm.bash [branch]
 # If not given, 'branch' defaults to 'stable'
 
+set -x
+exec > /tmp/bootstrap.out
+exec 2> /tmp/bootstrap.err
 set -e
 branch=$1
 [ -z "$branch" ] && branch=stable
