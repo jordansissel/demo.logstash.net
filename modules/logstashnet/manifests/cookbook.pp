@@ -5,7 +5,7 @@ class logstashnet::cookbook {
     "/app/cookbook.logstash.net/cookbook.logstash.net":
       ensure => latest,
       require => User::App["cookbook.logstash.net"],
-      owner => "logstash.net",
+      owner => "cookbook.logstash.net",
       provider => "git",
       revision => "gh-pages",
       notify => Rvm::Bundle_Exec["regen cookbook.logstash.net"],
