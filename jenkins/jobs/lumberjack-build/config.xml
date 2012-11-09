@@ -3,14 +3,24 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ARCHIVE_PATH</name>
+          <description></description>
+          <defaultValue>/app/jenkins/.jenkins/jobs/lumberjack/workspace/archive/</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@1.1.25">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>git://github.com/nickethier/lumberjack.git</url>
+        <url>git://github.com/jordansissel/lumberjack.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -71,17 +81,15 @@ then
   gem install vagrant
 fi
 
+VBoxManage list vms
+vagrant destroy $PKG_TYPE-$ARCHITECTURE --force
 vagrant up $PKG_TYPE-$ARCHITECTURE
 vagrant ssh $PKG_TYPE-$ARCHITECTURE -c &quot;cd /vagrant; make clean; make $PKG_TYPE;&quot;
-vagrant destroy $PKG_TYPE-$ARCHITECTURE</command>
+vagrant destroy $PKG_TYPE-$ARCHITECTURE --force
+mv lumberjack*.$PKG_TYPE $ARCHIVE_PATH</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.ArtifactArchiver>
-      <artifacts>*.$PKG_TYPE</artifacts>
-      <latestOnly>false</latestOnly>
-    </hudson.tasks.ArtifactArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <ruby-proxy-object>
       <ruby-object ruby-class="Jenkins::Plugin::Proxies::BuildWrapper" pluginid="rvm">
