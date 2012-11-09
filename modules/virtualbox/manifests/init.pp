@@ -11,7 +11,7 @@ class virtualbox {
   apt::key {
     "oracle-virtualbox":
       key => "98AB5139",
-      key_source => "http://public-yum.oracle.com/";
+      key_source => "http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc";
   }
 
   package {
