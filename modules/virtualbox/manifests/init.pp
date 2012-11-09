@@ -16,7 +16,7 @@ class virtualbox {
 
   package {
     "virtualbox-4.2":
-      require => Apt::Source["virtualbox"],
+      require => [Apt::Source["virtualbox"], Apt::Key["oracle-virtualbox"]],
       ensure => latest;
   }
 }
