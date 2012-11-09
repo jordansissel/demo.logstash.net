@@ -26,7 +26,7 @@ class logstashnet {
   rvm::bundle_exec {
     "regen logstash.net":
       require => Rvm::Install["for logstash.net"],
-      command => "sh regen.sh",
+      command => "bash regen.sh",
       user => "logstash.net",
       #refreshonly => true,
       directory => "/app/logstash.net/logstash.net";
