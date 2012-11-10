@@ -21,6 +21,6 @@ rvm="${HOME}/.rvm/scripts/rvm"
 if [ ! -f "$rvm" ] ; then
   curl -L https://get.rvm.io | bash -s stable --ruby
 else
-  . "$rvm"
-  rvm get $branch
+  #. "$rvm"
+  #rvm get $branch
 fi
