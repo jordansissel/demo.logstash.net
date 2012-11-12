@@ -6,11 +6,18 @@ class demosite::logstash {
       ensure => present,
       user => "logstash",
       require => User::App["logstash-demo"],
-      command => "sh logstash.sh",
+      command => "sh logstash.sh agent -v -f demo.conf",
       directory => "/app/logstash-demo";
   }
 
   file {
+    "/app/logstash/logstash.sh":
+      ensure => file,
+      notify => Runit::Process["logstash-demo"],
+      mode => 0755,
+      owner => "logstash-demo",
+      group => "logstash-demo",
+      source => "puppet:///demosite/logstash.sh";
     "/app/logstash/demo.conf":
       ensure => file,
       notify => Runit::Process["logstash-demo"],
