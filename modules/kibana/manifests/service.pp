@@ -1,6 +1,11 @@
 class kibana::service {
   include ::kibana::package
 
+  rvm::install {
+    "for kibana":
+      user => "kibana";
+  }
+
   runit::process {
     "kibana":
       ensure => present,
