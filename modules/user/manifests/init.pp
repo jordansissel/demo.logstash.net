@@ -1,6 +1,7 @@
 class user {
   file {
     "/home": ensure => directory;
-    "/app": ensure => directory;
+    "/home/app": ensure => directory;
+    "/app": ensure => link, target => "/home/app";
   }
 }
