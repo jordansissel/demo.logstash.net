@@ -4,9 +4,7 @@ input {
     type => "lumberjack"
     ssl_certificate => "server.crt"
     ssl_key => "server.key"
-    format => "json_event"
-  }
-
+    format => "json_event" } 
   twitter {
     type => "twitter"
     user => "jls_api"
@@ -42,6 +40,7 @@ filter {
   geoip {
     type => apache
     field => clientip
+    database => "file:/home/app/logstash-demo/logstash-1.1.5-monolithic.jar!/GeoLiteCity.dat"
   }
 }
 
