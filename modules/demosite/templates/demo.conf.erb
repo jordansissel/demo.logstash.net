@@ -4,12 +4,14 @@ input {
     type => "lumberjack"
     ssl_certificate => "server.crt"
     ssl_key => "server.key"
-    format => "json_event" } 
+    format => "json_event" 
+  } 
+
   twitter {
     type => "twitter"
     user => "jls_api"
     password => "<%= twitter_pass %>"
-    keywords => [ "devops", "sysadmin" ]
+    keywords => [ "sysadvent", "devops", "logstash", "xdotool" ]
   }
 
   irc {
