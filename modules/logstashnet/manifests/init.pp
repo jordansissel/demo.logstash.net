@@ -14,7 +14,7 @@ class logstashnet {
       provider => "git",
       revision => "master",
       notify => Rvm::Bundle_Exec["regen logstash.net"],
-      source => "https://github.com/logstash/logstash.github.com";
+      source => "https://github.com/logstash/logstash.net";
   }
 
   rvm::install {
