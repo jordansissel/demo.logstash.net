@@ -1,11 +1,17 @@
 #!/bin/sh
 
-if ! which puppet > /dev/null 2>&1 ; then
-  sh bootstrap.sh
+have() { 
+  which "$1" > /dev/null 2>&1 
+}
+
+# Some distros put gem bins in dumb places. Make sure they're in the path
+if have gem ; then
+  gembin=$(gem env | awk '/EXECUTABLE DIRECTORY:/ { print $NF }')
+  PATH="${PATH}:${gembin}"
 fi
 
-puppet apply --color=false --modulepath modules site.pp \
-  #| tee /dev/stderr \
-  #| /opt/lumberjack/bin/lumberjack.sh --ssl-ca-path ./lumberjack.crt \
-       #--host localhost --port 5005 --field type=puppet \
-       #--field run=`date +%s` -
+# Bootstrap puppet if we don't have it.
+have puppet || sh bootstrap.sh
+
+# Now run puppet.
+puppet apply --color=false --modulepath modules site.pp 
