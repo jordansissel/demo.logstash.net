@@ -4,13 +4,16 @@ class truth::enforcer {
   }
 
   include user::humans
-  include virtualbox
-  include statsd
-  include demosite
-  include demosite::logstash
-  include logstashnet
-  include jenkins
   include os
-  include redis
-  include shatty
+
+  if ($demo) {
+    include virtualbox
+    include statsd
+    include demosite
+    include demosite::logstash
+    include jenkins
+    include redis
+    include shatty
+  }
+  include logstashnet
 }
