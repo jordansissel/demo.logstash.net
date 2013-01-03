@@ -1,6 +1,6 @@
 #!/bin/sh
 
-url="https://logstash.objects.dreamhost.com/release/logstash-1.1.5-monolithic.jar"
+url="https://logstash.objects.dreamhost.com/release/logstash-1.1.6-flatjar.jar"
 file=`basename "$url"`
 
 if [ ! -f "$file" ] ; then
