@@ -21,6 +21,14 @@ input {
     nick => "woodstash"
     channels => [ "#logstash", "#hangops" ]
   }
+
+  zeromq { 
+    topology => pubsub
+    type => fedmsg
+    address => "tcp://hub.fedoraproject.org:9940"
+    mode => client
+    format => json
+  }
 }
 
 filter {
