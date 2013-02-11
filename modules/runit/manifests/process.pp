@@ -43,6 +43,12 @@ define runit::process(
       ensure => $ensure_directory,
       require => User["runitlog"],
       owner => "runitlog";
+    "$logdir/config":
+      ensure => $ensure,
+      notify => Exec["restart $servicedir/log"],
+      require => User["runitlog"],
+      owner => "runitlog",
+      content => "s52428800\n";
     "/var/log/${name}":
       ensure => link,
       target => "$logdir/current";
