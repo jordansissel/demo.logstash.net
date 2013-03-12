@@ -47,11 +47,12 @@ filter {
     timestamp => "dd/MMM/yyyy:HH:mm:ss Z"
   }
 
-  #geoip {
-    #type => apache
-    #field => clientip
-    #database => "file:/home/app/logstash-demo/logstash-1.1.5-monolithic.jar!/GeoLiteCity.dat"
-  #}
+  geoip {
+    type => apache
+    field => clientip
+    database => "./GeoLite-City.dat"
+  }
+
 }
 
 output {
