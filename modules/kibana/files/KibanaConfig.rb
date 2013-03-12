@@ -113,4 +113,42 @@ module KibanaConfig
 
   # Set headers to allow kibana to be loaded in an iframe from a different origin.
   Allow_iframed = false
+
+  # If set to true, Kibana will use the Highlight feature of Elasticsearch to 
+  # display highlighted search results
+  Highlight_results = true
+
+  # A field needs to be specified for the highlight feature. By default, 
+  # Elasticsearch doesn't allow highlighting on _all because the field has to 
+  # be either stored or part of the _source field.
+  Highlighted_field = "@message"
+end
+ of indices that
+  # Kibana will use for the "Stats" and "Terms" to prevent ES crashes. For very
+  # large data sets and undersized ES clusers, a limit of 1 is not unreasonable.
+  # Default is 0 (unlimited)
+  Facet_index_limit = 0
+
+  # You probably don't want to touch anything below this line
+  # unless you really know what you're doing
+
+  # Primary field. By default Elastic Search has a special
+  # field called _all that is searched when no field is specified.
+  # Dropping _all can reduce index size significantly. If you do that
+  # you'll need to change primary_field to be '@message'
+  Primary_field = '_all'
+
+  # Default Elastic Search index to query
+  Default_index = '_all'
+
+  # TODO: This isn't functional yet
+  # Prevent wildcard search terms which result in extremely slow queries
+  # See: http:#www.elasticsearch.org/guide/reference/query-dsl/wildcard-query.html
+  Disable_fullscan = false
+
+  # Set headers to allow kibana to be loaded in an iframe from a different origin.
+  Allow_iframed = false
+
+  # Use this interval as fallback.
+  Fallback_interval = 900
 end
