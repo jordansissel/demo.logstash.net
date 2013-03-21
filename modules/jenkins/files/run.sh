@@ -1,7 +1,8 @@
 #!/bin/sh
 
-version="1.502"
-checksum="1ff9ccc717be382d0cff23addc88dc2c5f891922130e0df134d3a16ab791fb0c"
+version="1.506"
+#1.502 checksum="1ff9ccc717be382d0cff23addc88dc2c5f891922130e0df134d3a16ab791fb0c"
+checksum="6fd6e159b8227bcc705adaee20e8573bb2667435875f8a40539b14e3c726be91"
 
 if [ ! -f jenkins.war ] ; then
   wget http://mirrors.jenkins-ci.org/war/${version}/jenkins.war
