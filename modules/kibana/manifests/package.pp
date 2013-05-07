@@ -13,13 +13,13 @@ class kibana::package {
       owner => "kibana",
       provider => "git",
       revision => "kibana-ruby",
-      source => "https://github.com/jordansissel/Kibana"
+      source => "https://github.com/jordansissel/Kibana";
     "/app/kibana/kibana3":
       ensure => latest,
       require => User::App["statsd"],
       owner => "kibana",
       provider => "git",
       revision => "master",
-      source => "https://github.com/elasticsearch/kibana3.git"
+      source => "https://github.com/elasticsearch/kibana3";
   }
 }
