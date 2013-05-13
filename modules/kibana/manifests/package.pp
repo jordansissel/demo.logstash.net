@@ -20,6 +20,6 @@ class kibana::package {
       owner => "kibana",
       provider => "git",
       revision => "master",
-      source => "https://github.com/elasticsearch/kibana3";
+      source => "https://github.com/elasticsearch/kibana";
   }
 }
