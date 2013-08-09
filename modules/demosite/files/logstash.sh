@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Yeah, I should package this, but whatever, it's a demo. ;)
-url="https://logstash.objects.dreamhost.com/release/logstash-1.1.9-monolithic.jar"
+url="https://logstash.objects.dreamhost.com/release/logstash-1.1.10-flatjar.jar"
 file=`basename "$url"`
 
 if [ ! -f "$file" ] ; then

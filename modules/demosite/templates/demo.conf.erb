@@ -7,13 +7,6 @@ input {
     format => "json_event" 
   } 
 
-  #twitter {
-    #type => "twitter"
-    #user => "jls_api"
-    #password => "<%= twitter_pass %>"
-    #keywords => [ "sysadvent", "devops", "logstash", "xdotool" ]
-  #}
-
   irc {
     type => "irc"
     host => "irc.freenode.org"
@@ -40,6 +33,11 @@ filter {
   grok {
     type => apache # comes from lumberjack input
     pattern => "%{COMBINEDAPACHELOG}"
+  }
+
+  mutate {
+    type => apache
+    convert => [ "bytes", "integer", "response", "integer" ]
   }
 
   date {
