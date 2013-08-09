@@ -3,7 +3,7 @@
 version="1.526"
 #1.502 checksum="1ff9ccc717be382d0cff23addc88dc2c5f891922130e0df134d3a16ab791fb0c"
 #1.506 checksum="6fd6e159b8227bcc705adaee20e8573bb2667435875f8a40539b14e3c726be91"
-checksum="05aedf508accd71327c56a607888a301cd9d41f9a8087445b4f92ec15a5f38b1"
+checksum="552da3e10fe938a24a4581cc9385eb4a054d52cf73ff73e4ff62105dc82774b2"
 
 if [ ! -f jenkins.war ] ; then
   wget http://mirrors.jenkins-ci.org/war/${version}/jenkins.war
