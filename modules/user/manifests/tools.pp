@@ -1,4 +1,6 @@
 class user::tools {
+  include mysql::libs
+
   package {
     "build-essential": ensure => latest;
     "clang": ensure => latest;
