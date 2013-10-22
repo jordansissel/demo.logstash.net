@@ -14,7 +14,7 @@ fi
 have puppet || sh bootstrap.sh
 
 # Include the logstash demo services
-export FACTOR_demo=true
+export FACTER_demo=true
 
 # Now run puppet.
 puppet apply --color=false --modulepath modules site.pp 
