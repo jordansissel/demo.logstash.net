@@ -20,4 +20,4 @@ if [ ! -f "GeoLite-City.dat" ] ; then
     | gzip -dc > "GeoLite-City.dat"
 fi
 
-exec java -jar $file "$@"
+exec java -Des.script.disable_dynamic=true -jar $file "$@"

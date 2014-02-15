@@ -17,4 +17,5 @@ have puppet || sh bootstrap.sh
 export FACTER_demo=true
 
 # Now run puppet.
+export LANG=en_US.UTF-8
 puppet apply --color=false --modulepath modules site.pp 
