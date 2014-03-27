@@ -1,6 +1,7 @@
 define runit::process(
   $command, # the command to run
   $user, # the user to run as
+  $groups = undef
   $ensure="present",
   $directory="/",
   $serviceroot="/etc/service",
@@ -14,6 +15,12 @@ define runit::process(
 
   $ensure_file = $ensure
   $ensure_directory = $ensure ? { "absent" => "absent", default => "directory" }
+
+  if $groups == undef {
+    $_groups = ["$user"]
+  } else
+    $_groups = $groups
+  }
 
   if $ensure == "absent" {
     exec {

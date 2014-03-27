@@ -20,6 +20,7 @@ class jenkins::service {
     "jenkins":
       ensure => present,
       user => "jenkins",
+      groups => [ "jenkins", "docker" ],
       require => Class["jenkins::package"],
       command => "sh run.sh",
       directory => "/app/jenkins";
