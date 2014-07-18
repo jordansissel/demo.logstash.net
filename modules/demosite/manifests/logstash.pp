@@ -3,7 +3,7 @@ class demosite::logstash {
 
   runit::process {
     "logstash-demo":
-      ensure => present,
+      ensure => absent,
       user => "logstash-demo",
       require => User::App["logstash-demo"],
       command => "sh logstash.sh agent -v -f demo.conf",
@@ -12,14 +12,14 @@ class demosite::logstash {
 
   file {
     "/app/logstash-demo/logstash.sh":
-      ensure => file,
+      ensure => absent,
       notify => Runit::Process["logstash-demo"],
       mode => 0755,
       owner => "logstash-demo",
       group => "logstash-demo",
       source => "puppet:///modules/demosite/logstash.sh";
     "/app/logstash-demo/demo.conf":
-      ensure => file,
+      ensure => absent,
       notify => Runit::Process["logstash-demo"],
       owner => "logstash-demo",
       group => "logstash-demo",

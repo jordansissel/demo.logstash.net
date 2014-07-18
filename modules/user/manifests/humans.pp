@@ -4,6 +4,7 @@ class user::humans {
     "untergeek": ensure => present, root => true;
     "nethier": ensure => present, root => false;
     "electrical": ensure => present, root => true;
+    "colin": ensure => present, root => true;
     "drewr": ensure => present;
   }
 }

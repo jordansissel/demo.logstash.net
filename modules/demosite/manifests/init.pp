@@ -2,7 +2,7 @@ class demosite {
   include apache
   include apache::params
   include apache::mod::default
-  include kibana
+  #include kibana
 
   file {
     "$apache::params::vdir/graphite.conf":
@@ -17,7 +17,7 @@ class demosite {
 
   file {
     "$apache::params::vdir/demo.conf":
-      ensure => file,
+      ensure => absent,
       source => "puppet:///modules/demosite/demo.conf",
       # I don't like notifying an external service (defined by the 'apache' class)
       # but the puppetlabs/apache module defines it there and until I patch it

@@ -4,7 +4,7 @@ exec 2>&1
 
 ulimit -n 100000
 # lolbash
-exec chpst -o 100000 -u<%= user %>:<%= _groups.join(":") %> bash - <<COMMAND
+exec chpst -o 100000 -u<%= user %>:<%= real_groups.join(":") %> bash - <<COMMAND
 HOME="\$(getent passwd "<%= user %>" | awk -F: '{print \$(NF-1)}')"
 export HOME
 
